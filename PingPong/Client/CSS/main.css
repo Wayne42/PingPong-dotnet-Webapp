@@ -1,0 +1,314 @@
+﻿*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    font-family: Consolas, monospace;
+    color: white;
+    background: black;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+}
+
+button {
+    height: 2rem;
+    color: white;
+    background: #101010;
+    border: 1px solid #f0f0f0;
+    font-family: Consolas, monospace;
+    cursor: pointer;
+}
+
+input {
+    height: 1.75rem;
+    padding: 0.5rem;
+    font-family: Consolas, monospace;
+}
+
+
+.input-zone {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.input-zone-input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.message-author {
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.messages {
+    overflow-y: auto;
+    padding: 5px;
+    width: 320px;
+    max-height: 10rem;
+    min-height: 10rem;
+    background: #090909;
+    font-size: 0.75rem;
+}
+
+
+#Overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9;
+    background: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: black;
+    color: white;
+    text-shadow: 1px 1px 2px white;
+}
+
+    #Overlay h1 {
+        text-shadow: 1px 1px 3px white;
+        margin: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-bottom: 2rem;
+        font-size: 3.5rem;
+        margin-top: -0.75rem;
+    }
+
+    #Overlay .subheader {
+        opacity: 0.91;
+        margin-left: 0.15rem;
+    }
+
+    #Overlay button {
+        height: 2.5rem;
+        color: white;
+        background: #101010;
+        border: 2px solid white;
+        font-weight: bold;
+        font-family: Consolas, monospace;
+    }
+
+    #Overlay input {
+        height: 2rem;
+        padding: 0.5rem;
+        font-family: Consolas, monospace;
+    }
+
+
+#LoginPrompt {
+    display: flex;
+    flex-direction: column;
+}
+
+#Main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#Game {
+    background: black;
+    border: 4px solid silver;
+    padding: 0 10px;
+    padding: 0 0px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAJUlEQVQoU2P8DwQMaIBxVBA1RLAHCFANIxCjBB9IAAOMCqIFCQCPoDzjSmGwLgAAAABJRU5ErkJggg==');
+    background-repeat: no-repeat repeat;
+    background-position: center center;
+    max-width: 100vw;
+    position: relative;
+}
+
+#GameCanvas {
+    display: block;
+    max-width: 100%;
+}
+#Controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+#Controls button{
+    min-width: 3rem;
+}
+
+#GameInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0,0,0,0.9);
+}
+.game-playing #GameInfo {
+    display: none;
+}
+
+#VSNames {
+    display: flex;
+    justify-content: space-around;
+}
+/* see: https://css-tricks.com/almanac/properties/a/aspect-ratio/ */
+/*
+ 
+.container { // #Game
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.aspect-thing { // #GameCanvas
+  aspect-ratio: 3/2;
+  border: 1px black solid;
+  box-sizing: border-box;
+  
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+*/
+.game-playing #PlayerlistWrapper {
+    display: none;
+}
+
+#Playerlist {
+    width: 320px;
+    max-height: 10rem;
+    min-height: 10rem;
+    background: #090909;
+    padding: 5px;
+    overflow-y: scroll;
+}
+
+.player-item {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    min-height: 2rem;
+}
+
+    .player-item .player {
+        position: absolute;
+        left: 0;
+    }
+
+#divMessages > div, .player-item {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    border-right: 1px solid rgba(0,0,0,0.42);
+}
+
+    #divMessages > div:nth-child(2n), .player-item:nth-child(2n) {
+        background: rgba(255,255,255,0.015);
+    }
+
+    #divMessages > div:nth-child(2n+1), .player-item:nth-child(2n+1) {
+        background: rgba(0,0,0,0.25);
+    }
+
+
+
+    .player-item.received-invite .invite-btn {
+        display: none;
+    }
+
+#GlobalChat {
+    margin-top: 1rem;
+}
+
+#lblMessage {
+    display: none;
+}
+
+#Toast {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 7rem;
+    max-height: 25vh;
+    width: 100%;
+    z-index: 99;
+}
+
+    #Toast .toast {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-47%);
+        background: #e1e1e1;
+        color: black;
+        padding: 0.5rem;
+        opacity: 0;
+        transition: all 0.3s ease-out;
+        z-index: 99;
+    }
+
+        #Toast .toast.hidden {
+            display: none;
+        }
+
+        #Toast .toast.show {
+            opacity: 1 !important;
+            transform: translate(-50%,-50%) !important;
+        }
+
+.toast.success {
+    border: 1px solid #a0ff56;
+}
+
+.toast.error {
+    border: 1px solid #ff6811;
+}
+
+
+@media (min-width: 950px) {
+    #Main {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+}
+
+
+header, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+header {
+font-size: 1.25rem;
+}
+
+footer{
+    font-size: 0.75rem;
+}

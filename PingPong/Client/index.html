@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASP.NET Core SignalR with TypeScript and Webpack</title>
+</head>
+<body>
+
+    <div id="Overlay">
+        <div>
+            <div class="subheader">Online Multiplayer</div>
+            <h1>PingPong 3.0</h1>
+        </div>
+        <div id="LoginPrompt">
+            <label>
+                Enter your Name<br />
+                <input id="inpPlayerName" type="text" placeholder="Playername" />
+            </label>
+
+            <button id="btnLogin">Login</button>
+        </div>
+    </div>
+
+    <header>Online Multiplayer PingPong</header>
+    <div id="Main">
+
+        <div id="Left">
+            <div id="GameWrapper">
+                <div id="Game">
+                    <canvas id="GameCanvas" width="500" height="300"></canvas>
+                    <div id="GameInfo">Invite a player or accept an invite to start a game. </div>
+                </div>
+                <div id="VSNames"><div id="PlayerCreator"></div><div id="PlayerOpponent"></div></div>
+                <div id="Controls"><button id="moveUp">UP</button><button id="moveDown">DOWN</button></div>
+            </div>
+        </div>
+
+        <div id="Right">
+            <div id="PlayerlistWrapper">
+                <h3>Online Players</h3>
+                <div id="Playerlist">
+
+                </div>
+            </div>
+
+            <div id="GlobalChat">
+                <h3>Chat</h3>
+                <div id="divMessages" class="messages"></div>
+                <div class="input-zone">
+                    <label id="lblMessage" for="tbMessage">Message:</label>
+                    <input id="inpMessage" class="input-zone-input" type="text" placeholder="type a message..." />
+                    <button id="btnSend">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <footer>You can use the "W" and "S" keys to move Up and Down, or use the control buttons.</footer>
+
+    <footer>No data (neither Chat or Playername) is saved in some kind of database.</footer>
+    <footer>Programmed with .NET Core 7 - SignalR | by Ferhat Tohidi Far (me[@]ferhat.tf)| 2023</footer>
+    <div id="Toast">
+
+    </div>
+</body>
+</html>
